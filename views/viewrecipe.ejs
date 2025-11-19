@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>
+        <%= recipe.title %>
+    </title>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="headerContainer">
+            <h1 class="site-title">Recipe Website Name</h1>
+
+            <!-- Login/Logout -->
+            <div class="auth-container">
+                <% if (user) { %>
+                    <span class="welcome-msg">Welcome, <%= user.username %>!</span>
+                    <form action="/users/logout" method="POST" class="auth-inline-form">
+                        <button class="authbtn" type="submit">Logout</button>
+                    </form>
+                    <% } else { %>
+                        <a href="/users/login">
+                            <button class="authbtn" type="button">Login</button>
+                        </a>
+                        <% } %>
+            </div>
+
+            <!-- Menu -->
+            <nav>
+                <div class="menubtn" onclick="toggleMenu()">
+                    <img src="/images/menu_button.svg" alt="Menu Button">
+                </div>
+                <ul id="menu" class="menucontents">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/recipes/add">Create Recipe</a></li>
+                    <li><a href="/recipes/myrecipes">My Recipes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Recipe Display Section -->
+    <section class="page-section">
+        <div class="page-card">
+
+            <h1 class="page-title">
+                <%= recipe.title %>
+            </h1>
+            <p class="page-subtitle">
+                By: <%= recipe.author.username %>
+            </p>
+            <p class="page-subtitle">
+                <%= recipe.description %>
+            </p>
+
+            <!-- Like Button -->
+            <form action="/recipes/<%= recipe._id %>/like" method="POST" class="inline-form">
+                <button class="like-btn" type="submit">
+                    Like <span class="like-count">
+                        <%= recipe.likes.length %>
+                    </span>
+                </button>
+            </form>
+
+            <!-- Ingredients -->
+            <h3 class="section-title">Ingredients</h3>
+            <ul class="list-box">
+                <% recipe.ingredients.forEach(i=> { %>
+                    <li>
+                        <%= i %>
+                    </li>
+                    <% }) %>
+            </ul>
+
+            <!-- Instructions -->
+            <h3 class="section-title">Instructions</h3>
+            <ol class="list-box">
+                <% recipe.instructions.forEach(step=> { %>
+                    <li>
+                        <%= step %>
+                    </li>
+                    <% }) %>
+            </ol>
+
+        </div>
+    </section>
+
+
+    <!-- Comment Section -->
+    <section class="page-section">
+
+        <h3 class="section-title">Comments</h3>
+
+        <!-- Add Comment -->
+        <% if (user) { %>
+            <form action="/comments/add/<%= recipe._id %>" method="POST" class="comment-form">
+                <input type="hidden" name="recipeId" value="<%= recipe._id %>">
+
+                <textarea class="input-textarea" name="content" rows="3" placeholder="Write your comment..."
+                    required></textarea>
+
+                <button class="submit-button" type="submit">Post Comment</button>
+            </form>
+            <% } else { %>
+                <p class="text-muted">You must be logged in to leave a comment.</p>
+                <% } %>
+
+
+                    <!-- Comment List -->
+                    <ul class="comment-list">
+                        <% if (comments.length> 0) { %>
+                            <% comments.forEach(c=> { %>
+                                <li class="comment-item">
+                                    <div class="comment-header">
+                                        <span class="comment-author">
+                                            <%= c.createdBy.username %>
+                                        </span>
+                                        <span class="comment-time">
+                                            <%= c.createdAt.toLocaleString() %>
+                                        </span>
+                                    </div>
+                                    <p class="comment-content">
+                                        <%= c.content %>
+                                    </p>
+                                </li>
+                                <% }) %>
+                                    <% } else { %>
+                                        <li class="comment-item text-muted">No comments yet. Be the first!</li>
+                                        <% } %>
+                    </ul>
+
+    </section>
+
+
+    <footer class="footer">
+        <p>Recipe Website Name</p>
+    </footer>
+
+    <script src="/static/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Admin Panel</title>
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="site-title">Admin Panel</h1>
+    </header>
+
+    <section class="section">
+        <div class="content-box">
+            <h2>Welcome, <%= user.username %></h2>
+            <p>You have admin privileges.</p>
+        </div>
+    </section>
+
+    <!-- Recipes -->
+    <section class="section">
+        <div class="content-box">
+            <h2 class="section-title">All Recipes</h2>
+
+            <% if (recipes.length === 0) { %>
+                <p>No recipes found.</p>
+            <% } else { %>
+                <ul>
+                    <% recipes.forEach(recipe => { %>
+                        <li class="recipe-item">
+                            <strong><%= recipe.title %></strong>
+                            <span> by <%= recipe.author.username %></span>
+
+                            <form action="/admin/deleteRecipe/<%= recipe._id %>" method="POST" style="display:inline;">
+                                <button type="submit" class="delete-btn">Delete Recipe</button>
+                            </form>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } %>
+        </div>
+    </section>
+
+    <!-- Users -->
+    <section class="section">
+        <div class="content-box">
+            <h2 class="section-title">All Users</h2>
+
+            <% if (users.length === 0) { %>
+                <p>No users available.</p>
+            <% } else { %>
+                <ul>
+                    <% users.forEach(u => { %>
+                        <li class="user-item">
+                            <strong><%= u.username %></strong>
+
+                            <form action="/admin/deleteUser/<%= u._id %>" method="POST" style="display:inline;">
+                                <button type="submit" class="delete-btn">Delete User</button>
+                            </form>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } %>
+        </div>
+    </section>
+
+</body>
+
+</html>

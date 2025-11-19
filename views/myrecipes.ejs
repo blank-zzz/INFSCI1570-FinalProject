@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>My Recipes</title>
+</head>
+
+<body class="page">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <h1 class="site-title">Recipe Website Name</h1>
+
+            <div class="auth-container">
+                <% if (user) { %>
+                    <span class="welcome-msg">Welcome, <%= user.username %>!</span>
+                    <form action="/users/logout" method="POST">
+                        <button class="btn auth-btn" type="submit">Logout</button>
+                    </form>
+                    <% } else { %>
+                        <a href="/users/login">
+                            <button class="btn auth-btn" type="button">Login</button>
+                        </a>
+                        <% } %>
+            </div>
+
+            <nav class="nav">
+                <div class="menu-btn" onclick="toggleMenu()">
+                    <img src="/images/menu_button.svg" alt="Menu">
+                </div>
+                <ul id="menu" class="menu-list">
+                    <li><a class="menu-link" href="/">Home</a></li>
+                    <li><a class="menu-link" href="/recipes/add">Create Recipe</a></li>
+                    <li><a class="menu-link" href="/recipes/myrecipes">My Recipes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- My Recipes -->
+    <section class="section">
+        <h2 class="section-title">My Recipes</h2>
+
+        <ul class="recipe-list">
+            <% if (recipes && recipes.length> 0) { %>
+
+                <% recipes.forEach(recipe=> { %>
+                    <li class="recipe-item">
+
+                        <span class="recipe-name">
+                            <%= recipe.title %>
+                        </span>
+                        <span class="recipe-likes">(<%= recipe.likes.length %> likes)</span>
+
+                        <a class="btn btn-view" href="/recipes/<%= recipe._id %>">View</a>
+                        <a class="btn btn-edit" href="/recipes/modify/<%= recipe._id %>">Edit</a>
+
+                    </li>
+                    <% }) %>
+
+                        <% } else { %>
+                            <li class="recipe-item no-recipes-msg">
+                                You haven't created any recipes yet.
+                            </li>
+                            <% } %>
+        </ul>
+    </section>
+
+    <footer class="footer">
+        <p class="footer-text">Recipe Website Name</p>
+    </footer>
+
+    <script src="/static/main.js"></script>
+</body>
+
+</html>

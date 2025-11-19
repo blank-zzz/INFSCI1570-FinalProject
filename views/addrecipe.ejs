@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Add Recipe</title>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="headerContainer">
+            <h1 class="site-title">Recipe Website Name</h1>
+
+            <nav>
+                <div class="menubtn" onclick="toggleMenu()">
+                    <img src="/images/menu_button.svg" alt="Menu Button">
+                </div>
+
+                <ul id="menu" class="menu-list">
+                    <li><a class="menu-link" href="/">Home</a></li>
+                    <li><a class="menu-link" href="/recipes/add">Create Recipe</a></li>
+                    <li><a class="menu-link" href="/recipes/myrecipes">My Recipes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Add Recipe Section -->
+    <section class="page-section">
+        <div class="page-card">
+
+            <h2 class="page-title">Create a Recipe</h2>
+
+            <% if (typeof addrecipeError !=="undefined" ) { %>
+                <p class="error-message">
+                    <%= addrecipeError %>
+                </p>
+                <% } %>
+
+                    <form action="/recipes/add" method="POST" class="form-vertical">
+
+                        <!-- Title -->
+                        <label for="addrecipe-title">Title</label>
+                        <input id="addrecipe-title" name="title" type="text" class="input-box" required>
+
+                        <!-- Description -->
+                        <label for="addrecipe-description">Description</label>
+                        <input id="addrecipe-description" name="description" type="text" class="input-box" required>
+
+                        <!-- Ingredients -->
+                        <label>Ingredients</label>
+                        <div id="ingredients-container" class="dynamic-list">
+                            <input name="ingredients[]" type="text" class="input-box" required>
+                        </div>
+
+                        <button type="button" class="secondary-button" id="add-ingredient-btn">
+                            Add Another Ingredient
+                        </button>
+
+                        <!-- Instructions -->
+                        <label>Instructions</label>
+                        <div id="instructions-container" class="dynamic-list">
+                            <input name="instructions[]" type="text" class="input-box" required>
+                        </div>
+
+                        <button type="button" class="secondary-button" id="add-instruction-btn">
+                            Add Another Step
+                        </button>
+
+                        <!-- Submit -->
+                        <button class="submit-button" type="submit">Create Recipe</button>
+
+                    </form>
+
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <p>Recipe Website Name</p>
+    </footer>
+
+    <script src="/static/main.js"></script>
+</body>
+
+</html>

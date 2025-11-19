@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Home Page</title>
+</head>
+
+<body class="page">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+
+            <h1 class="site-title">Recipe Website Name</h1>
+
+            <!-- Login/Logout button -->
+            <div class="auth-container">
+                <% if (user) { %>
+                    <span class="welcome-msg">Welcome, <%= user.username %>!</span>
+
+                    <form action="/users/logout" method="POST">
+                        <button class="btn auth-btn" type="submit">Logout</button>
+                    </form>
+
+                    <% } else { %>
+
+                        <a href="/users/login">
+                            <button class="btn auth-btn" type="button">Login</button>
+                        </a>
+
+                        <% } %>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="nav">
+                <div class="menu-btn" onclick="toggleMenu()">
+                    <img src="/images/menu_button.svg" alt="Menu">
+                </div>
+
+                <ul id="menu" class="menu-list">
+                    <li><a class="menu-link" href="/">Home</a></li>
+                    <li><a class="menu-link" href="/recipes/add">Create Recipe</a></li>
+                    <li><a class="menu-link" href="/recipes/myrecipes">My Recipes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Admin Only Button -->
+    <section class="section">
+        <% if (user && user.role==="admin" ) { %>
+            <div class="content-box" style="text-align:center;">
+                <a href="/admin" class="btn admin-btn">Go to Admin Panel</a>
+            </div>
+            <% } %>
+    </section>
+
+    <!-- Search (if i have time) -->
+    <section class="section">
+        <div class="search-container">
+            <!-- Search bar goes here -->
+        </div>
+    </section>
+
+    <!-- Top Recipe Section -->
+    <!-- Sort by likes, top 5 -->
+    <section class="section">
+        <div class="content-box">
+            <h2 class="section-title">Top Recipes!</h2>
+
+            <ul class="recipe-list">
+                <% if (recipes && recipes.length> 0) { %>
+
+                    <% recipes.forEach(recipe=> { %>
+                        <li class="recipe-item">
+                            <a class="recipe-link" href="/recipes/<%= recipe._id %>">
+                                <%= recipe.title %>
+                            </a>
+                            <span class="recipe-subtext">
+                                (<%= recipe.likes.length %> likes)
+                            </span>
+                        </li>
+                        <% }) %>
+
+                            <% } else { %>
+                                <li class="recipe-item no-recipes-msg">No recipes found.</li>
+                                <% } %>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p class="footer-text">Recipe Website Name</p>
+    </footer>
+
+    <script src="/static/main.js"></script>
+</body>
+
+</html>

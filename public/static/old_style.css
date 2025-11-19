@@ -1,0 +1,389 @@
+/* Color Palette */
+/* Area            Color           Hexcode */
+/* Background         Off White    #FAF9F6 */
+/* Card / Section     Cool Gray    #E5E5E5 */
+/* Accent / Buttons   Dusty Rose   #D8A7A7 */
+/* Highlight / Hover  Warm Taupe   #BBAE9E */
+/* Text / Headers     Charcoal     #2E2E2E */
+/* Subtext            Muted Stone  #7B7B7B */
+
+/* are the colors to dull? */
+/* went for a modern look but might have made it too boring */
+
+/* Import Roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+Body
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Lucida Console", "Courier New", monospace;
+    background-color: #FAF9F6;
+    color: #2E2E2E;
+}
+
+/* Footer */
+footer {
+    background-color: #2E2E2E;
+    color: #FAF9F6;
+    font-style: italic;
+    text-align: center;
+    padding: 0.5em;
+}
+
+/* Header */
+header {
+    background-color: #2E2E2E;
+    color: #FAF9F6;
+    text-align: center;
+    padding: 1em;
+}
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5em;
+}
+
+.headerContainer h1 {
+    flex-grow: 1;
+    font-size: 1.8em;
+    margin: 0;
+}
+
+.menubtn {
+    width: 40px;
+    cursor: pointer;
+    display: block;
+    margin: 1.5em;
+}
+
+.menubtn img {
+    width: 100%;
+    height: auto;
+}
+
+/* Menu Content*/
+nav {
+    position: relative;
+}
+
+.menucontents {
+    list-style: none;
+    margin: 0;
+    padding: 5px;
+    position: absolute;
+    top: 100%;
+    right: 10px;
+    background-color: #FAF9F6;
+    color: #2E2E2E;
+    border: 2px solid #BBAE9E;
+    border-radius: 8px;
+    display: none;
+}
+
+.menucontents.show {
+    display: block;
+}
+
+.menucontents a {
+    color: #2E2E2E;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menucontents a:visited {
+    color: #2E2E2E;
+}
+
+.menucontents a:hover {
+    color: #BBAE9E;
+}
+
+.menucontents li {
+    padding: 8px 12px;
+    border-bottom: 1px solid #BBAE9E;
+}
+
+.menucontents li:last-child {
+    border-bottom: none;
+}
+
+/* Login/Log Out Button */
+.authbtn {
+    background-color: #FAF9F6;
+    color: #2E2E2E;
+    border: 2px solid #2E2E2E;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.authbtn:hover {
+    background-color: #FAF9F6;
+    color: #2E2E2E;
+}
+
+/* Submission Page Content */
+/* Any page that takes user input */
+.auth-section {
+    display: flex;
+    justify-content: center;
+    margin: 2em 0;
+}
+
+.auth-card {
+    background-color: #E5E5E5;
+    padding: 2em 2.5em;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-card h2 {
+    margin-top: 0;
+    margin-bottom: 1em;
+    color: #2E2E2E;
+    text-align: center;
+}
+
+.recipe-section {
+    display: flex;
+    justify-content: center;
+    margin: 2em 0;
+}
+
+.recipe-card {
+    background-color: #E5E5E5;
+    padding: 2em 2.5em;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card h2 {
+    margin-top: 0;
+    margin-bottom: 1em;
+    color: #2E2E2E;
+    text-align: center;
+}
+
+label {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #2E2E2E;
+}
+
+.input-box {
+    width: 100%;
+    padding: 10px;
+    margin: 0.4em 0 1em 0;
+    border: 1px solid #BBAE9E;
+    border-radius: 6px;
+    background: #FAF9F6;
+    color: #2E2E2E;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #D8A7A7;
+    color: #FAF9F6;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.submit-button:hover {
+    background-color: #BBAE9E;
+    color: #2E2E2E;
+}
+
+/* View Recipe Page Stuff */
+.recipe-view-container {
+    display: flex;
+    justify-content: center;
+    padding: 2em 1em;
+}
+
+.recipe-view-card {
+    background-color: #E5E5E5;
+    padding: 2em 2.5em;
+    border-radius: 10px;
+    width: 650px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-view-title {
+    font-size: 2em;
+    margin: 0 0 0.4em 0;
+    text-align: center;
+    color: #2E2E2E;
+}
+
+.recipe-view-author {
+    text-align: center;
+    font-size: 1em;
+    color: #7B7B7B;
+    margin-bottom: 1.5em;
+}
+
+.recipe-view-section-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 1.2em;
+    margin-bottom: 0.4em;
+    color: #2E2E2E;
+}
+
+.recipe-view-listbox {
+    background-color: #FAF9F6;
+    border: 1px solid #BBAE9E;
+    border-radius: 8px;
+    padding: 1em 1.2em;
+    margin-bottom: 1em;
+}
+
+.recipe-view-listbox li {
+    margin-bottom: 0.5em;
+    color: #2E2E2E;
+    line-height: 1.4em;
+}
+
+/* Comment Section */
+.comment-section {
+    width: 650px;
+    margin: 2em auto;
+    padding: 1.5em;
+    background-color: #E5E5E5;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.comment-title {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 0.8em;
+    color: #2E2E2E;
+}
+
+.comment-form {
+    margin-bottom: 1.5em;
+}
+
+.comment-input {
+    width: 100%;
+    padding: 10px;
+    background: #FAF9F6;
+    border: 1px solid #BBAE9E;
+    border-radius: 6px;
+    margin-bottom: 0.8em;
+    font-size: 1em;
+    color: #2E2E2E;
+}
+
+.comment-list {
+    list-style: none;
+    padding: 0;
+}
+
+.comment-item {
+    padding: 0.9em 1em;
+    margin-bottom: 0.7em;
+    background-color: #FAF9F6;
+    border: 1px solid #BBAE9E;
+    border-radius: 8px;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #2E2E2E;
+}
+
+.comment-time {
+    font-size: 0.8em;
+    color: #7B7B7B;
+    margin-left: 0.4em;
+}
+
+.comment-content {
+    margin-top: 0.3em;
+    line-height: 1.4em;
+}
+
+/* Like button */
+.like-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #D8A7A7;
+    color: #FAF9F6;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: 0.2s ease;
+    margin-bottom: 1.5em;
+}
+
+.like-btn:hover {
+    background-color: #BBAE9E;
+    color: #2E2E2E;
+}
+
+.like-count {
+    margin-left: 8px;
+    font-size: 0.9em;
+    color: #2E2E2E;
+}
+
+/* My Recipe Page/View */
+.myrecipes-section {
+    padding: 40px;
+}
+
+.myrecipes-title {
+    font-size: 26px;
+    color: #2E2E2E;
+    margin-bottom: 20px;
+}
+
+.myrecipes-list {
+    list-style: none;
+    padding: 0;
+}
+
+.myrecipes-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #E5E5E5;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.myrecipes-link {
+    color: #2E2E2E;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.myrecipes-link:hover {
+    color: #BBAE9E;
+    text-decoration: underline;
+}
+
+.myrecipes-subtext {
+    color: #7B7B7B;
+    font-size: 14px;
+}
+
+.no-recipes-msg {
+    color: #7B7B7B;
+    font-style: italic;
+}
