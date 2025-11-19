@@ -61,13 +61,13 @@
 
 
 
-Tasks
+## Tasks
 1. remove all the bad comments that are either not useful or actual curse words, tangents, etc.
 2. clean up css
 3. fix any bugs i missed
 4. add any thing you think is missing
 
-To Start
+## To Start
 1. Run either command in cmd
     node server.js
     npm run dev
