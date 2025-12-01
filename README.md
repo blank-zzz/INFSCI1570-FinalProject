@@ -62,7 +62,7 @@
 
 
 ## Tasks
-1. remove all the bad comments that are either not useful or actual curse words, tangents, etc.
+1. remove all the bad comments that are either not useful or actual curse words, tangents, etc. (DONE)
 2. clean up css
 3. fix any bugs i missed
 4. add any thing you think is missing
