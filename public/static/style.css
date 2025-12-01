@@ -13,8 +13,8 @@ body {
 body {
     margin: 0;
     padding: 0;
-    background: #FAF9F6;
-    color: #2E2E2E;
+    background: #FAFAF8;
+    color: #1A1A1A;
     font-family: 'Roboto', system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -36,7 +36,7 @@ h1,
 h2,
 h3,
 h4 {
-    color: #2E2E2E;
+    color: #2F855A;
     margin: 0 0 8px 0;
     font-weight: 600;
 }
@@ -63,8 +63,8 @@ h3 {
 /* Header and nav menu */
 header,
 .header {
-    background: #2E2E2E;
-    color: #FAF9F6;
+    background: #2F855A;
+    color: #FAFAF8;
     padding: 10px 0;
     position: sticky;
     top: 0;
@@ -89,7 +89,7 @@ header,
     font-size: 1.1rem;
     margin: 0;
     font-weight: 700;
-    color: #FAF9F6;
+    color: #FAFAF8;
 }
 
 /* auth container */
@@ -132,7 +132,7 @@ header,
     right: 12px;
     min-width: 160px;
     background: #FAF9F6;
-    border: 1px solid #D0C9C1;
+    border: 1px solid #48BB78;
     border-radius: 6px;
     box-shadow: 0 6px 18px rgba(46, 46, 46, 0.08);
     display: none;
@@ -278,7 +278,7 @@ textarea.input-textarea,
 /* button */
 .btn,
 .submit-button {
-    background: #F58A2F;
+    background: #8BB78F;
     color: #FFFFFF;
     border: none;
     padding: 10px 14px;
@@ -289,7 +289,7 @@ textarea.input-textarea,
 
 .btn:hover,
 .submit-button:hover {
-    background: #E07824;
+    background: #48BB78;
 
 }
 
@@ -334,7 +334,7 @@ textarea.input-textarea,
 }
 
 .btn-edit {
-    background: #F58A2F;
+    background: #48BB78;
     color: #FFFFFF;
     padding: 6px 10px;
     border-radius: 6px;
@@ -347,7 +347,7 @@ textarea.input-textarea,
 }
 
 .btn-edit:hover {
-    background: #E07824;
+    background: #68D391;
 }
 
 /* links */
@@ -424,7 +424,7 @@ textarea.input-textarea,
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #F58A2F;
+    background: #48BB78;
     color: #fff;
     border: none;
     padding: 8px 12px;
@@ -434,7 +434,7 @@ textarea.input-textarea,
 }
 
 .like-btn:hover {
-    background: #E07824;
+    background: #68D391;
 }
 
 /* lists for ingredients/instructions */
@@ -594,7 +594,7 @@ footer,
 
 /* Admin Button */
 .admin-btn {
-    background: #0057D9;
+    background: #48BB78;
     color: white;
     padding: 10px 20px;
     border-radius: 6px;
