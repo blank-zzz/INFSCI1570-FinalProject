@@ -10,7 +10,6 @@ const UserSchema = new mongoose.Schema({
 
 UserSchema.pre("save", async function (next) {
     // Only hash if password is new or modified
-    // But i aint letting users modify shit cause fuck u
     if (!this.isModified("password")) return next();
 
     try {
@@ -27,10 +26,6 @@ UserSchema.methods.comparePassword = async function (candidatePassword) {
     return bcrypt.compare(candidatePassword, this.password);
 };
 
-// OLD (Compare Passwords) OLD
-// No hashing because security isnt a requirement on project
-// UserSchema.methods.comparePassword = function (candidatePassword) {
-//     return this.password === candidatePassword;
-// };
+
 
 module.exports = mongoose.model("User", UserSchema);
