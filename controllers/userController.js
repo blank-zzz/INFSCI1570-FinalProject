@@ -1,8 +1,5 @@
 const User = require("../models/user");
 
-// why are we here? jsut to suffer
-// caffieene yum
-
 // Create New User
 exports.newUser = async (req, res) => {
     const { username, password } = req.body;
@@ -37,8 +34,6 @@ exports.loginUser = async (req, res) => {
         const user = await User.findOne({ username });
         const isMatch = await user.comparePassword(password);
 
-        // OLD If statement
-        // if (!user || !user.comparePassword(password))
         if (!user || !isMatch) {
             return res.render("login", { loginError: "Invalid credentials", user: null });
         }

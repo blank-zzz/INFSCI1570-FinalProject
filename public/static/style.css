@@ -309,13 +309,13 @@ textarea.input-textarea,
     background: rgba(0, 0, 0, 0.02);
 }
 
-/* another fucking button cause why not */
+
 .btn-sm {
     padding: 6px 8px;
     font-size: 0.9rem;
 }
 
-/* you're not gonna belive it, its another god damn button */
+
 .btn-view {
     background: #2E2E2E;
     color: #FAF9F6;
@@ -602,7 +602,7 @@ footer,
 
 
 /* Responsive screen */
-/* Note to self fix it or so help me god */
+
 @media (min-width: 768px) {
 
     .auth-card,
