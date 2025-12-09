@@ -23,7 +23,6 @@ router.get("/modify/:id", isLoggedIn, recipeController.modifyRecipe);
 // Update recipe
 router.post("/update/:id", isLoggedIn, recipeController.updateRecipe);
 
-// This right here is a bastard child
 // View Recipe
 router.get("/:id", recipeController.viewRecipe);
 
